@@ -1,0 +1,128 @@
+/* ===================================================================
+   АДАПТИВНІСТЬ CRIMEA RP — точкові налаштування для груп пристроїв
+   Базова гнучкість (clamp, auto-fit) вже в style.css.
+=================================================================== */
+
+/* --- Складані/дуже вузькі екрани --- */
+@media (max-width: 320px) {
+  .hero-text h1 { font-size: 1.375rem; }
+  .join-box { padding: 12px; }
+  .tab-btn { padding: 6px 10px; font-size: 0.75rem; }
+}
+
+/* --- Телефони і малі планшети --- */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding-top: 70px !important;
+  }
+
+  .hero-text,
+  .join-box {
+    flex: 0 1 auto !important;
+  }
+
+    .rules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9375rem;
+  }
+
+  .join-box {
+    width: 100%;
+  }
+
+  .license-check-row {
+    flex-direction: column;
+  }
+
+  .license-select,
+  .license-input,
+  .license-search-btn {
+    width: 100%;
+  }
+
+  .license-result-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .staff-member img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .staff-member-text b { font-size: 14px; }
+  .staff-member-text span { font-size: 12px; }
+
+  .modal-header span { font-size: 16px; }
+  .modal-body { padding: 18px; }
+  .article-title { font-size: 16px; }
+  .article-text { font-size: 13px; }
+
+  .image-lightbox img {
+    max-width: 95%;
+    max-height: 80%;
+  }
+}
+
+/* --- Планшети (iPad, Android) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .rules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* --- Великі монітори / 2K+ --- */
+@media (min-width: 1920px) {
+  .hero-text { max-width: 680px; }
+  .rules-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --- Альбомна орієнтація з малою висотою (телефон lying flat) --- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero { padding-top: 50px; }
+  .modal-box { max-height: 92vh; }
+}
+
+/* --- Тач-екрани: більші зони натискання --- */
+@media (hover: none) and (pointer: coarse) {
+  .tab-btn,
+  .rule-card,
+  .role-card,
+  #copyBtn,
+  .license-search-btn,
+  #modalClose,
+  #staffModalClose {
+    min-height: 44px;
+  }
+}
+
+/* --- Врахування вирізів iPhone (safe-area) --- */
+.clock {
+  top: max(20px, env(safe-area-inset-top));
+  right: max(24px, env(safe-area-inset-right));
+}
+
+.hero,
+.menu-tabs {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+html {
+  overscroll-behavior-y: contain;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
