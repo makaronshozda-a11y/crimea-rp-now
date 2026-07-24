@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Crimea RP</title>
+  <link rel="icon" href="image.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive/adaptive.css">
+</head>
+<body>
+
+  <div class="bg"></div>
+
+  <div class="clock" id="clock">--:--:--</div>
+
+  <main class="content">
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Ласкаво просимо в <span>Crimea RP</span></h1>
+        <p>
+          Топовий український RP-сервер в <b>ER:LC</b> у форматі <span class="accent2">Medium RP</span>.
+          Тут на тебе чекають атмосферні патрулі, чесна гра
+          та спільнота, з якою рольова гра відчувається живою.
+        </p>
+      </div>
+
+      <div class="join-box">
+        <div class="join-row">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>
+          <div class="join-row-text">
+            <span class="join-label">Код сервера</span>
+            <b id="serverCode">CrimeaRP</b>
+          </div>
+          <button id="copyBtn" type="button">Копіювати</button>
+        </div>
+
+        <a href="roblox://placeId=2534724415&launchData=%7B%22psCode%22%3A%22CrimeaRP%22%7D" class="join-link">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+          Приєднатися за посиланням
+        </a>
+
+        <a href="https://t.me/crimearp_erlc" target="_blank" rel="noopener" class="join-link telegram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+          Приєднатися до спільноти
+        </a>
+      </div>
+    </section>
+
+    <nav class="menu-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="home" type="button">Головна сторінка</button>
+      <button class="tab-btn" data-tab="roles" type="button">Ролі</button>
+      <button class="tab-btn" data-tab="licenses" type="button">Ліцензії</button>
+      <button class="tab-btn" data-tab="reviews" type="button">Відгуки</button>
+    </nav>
+
+    <section class="tab-content active" id="home">
+      <h2>Правила</h2>
+      <input type="text" id="ruleSearch" class="text-input" placeholder="Знайти слово в правилах...">
+      <div class="search-results" id="ruleSearchResults"></div>
+      <div class="rules-grid" id="rulesGrid"></div>
+    </section>
+
+    <section class="tab-content" id="roles">
+      <h2>Ролі</h2>
+      <input type="text" id="staffSearch" class="text-input" placeholder="Пошук за ніком або Telegram...">
+      <div class="search-results" id="staffSearchResults"></div>
+      <div class="roles-grid" id="rolesGrid"></div>
+    </section>
+
+    <section class="tab-content" id="licenses">
+      <h2>Перевірка гравців</h2>
+
+      <div class="license-check-box">
+        <p class="license-check-label">Перевірте гравця</p>
+        <div class="license-check-row">
+          <select id="licenseTypeSelect" class="license-select">
+            <option value="">Оберіть категорію для перевірки</option>
+            <option value="advocate">Ліцензія адвоката</option>
+            <option value="taxi">Ліцензія таксиста</option>
+            <option value="weapon-storage">Ліцензія на зброю (зберігання)</option>
+            <option value="weapon-carry">Ліцензія на приховане носіння зброї</option>
+          </select>
+          <input type="text" id="licenseNickInput" class="license-input" placeholder="Username або номер ліцензії">
+          <button id="licenseSearchBtn" class="license-search-btn" type="button">Перевірити</button>
+        </div>
+      </div>
+
+      <div id="licenseResult"></div>
+    </section>
+
+    <section class="tab-content" id="reviews">
+      <div class="reviews-header">
+        <h2>Відгуки</h2>
+        <a href="https://t.me/kitsuxen" target="_blank" rel="noopener" class="leave-review-btn">Залишити відгук</a>
+      </div>
+      <div class="reviews-carousel">
+        <button class="review-arrow review-arrow-left" id="reviewPrev" type="button" aria-label="Попередній">‹</button>
+        <div class="review-card" id="reviewCard"></div>
+        <button class="review-arrow review-arrow-right" id="reviewNext" type="button" aria-label="Наступний">›</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span id="modalTitle">Пункт</span>
+        <button id="modalClose" type="button" aria-label="Закрити">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="staffModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span id="staffModalTitle">Категорія</span>
+        <button id="staffModalClose" type="button" aria-label="Закрити">✕</button>
+      </div>
+      <div class="modal-body" id="staffModalBody"></div>
+    </div>
+  </div>
+
+  <div class="image-lightbox" id="imageLightbox">
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script src="rules-data.js"></script>
+  <script src="staff-data.js"></script>
+  <script src="licenses-data.js"></script>
+  <script src="reviews/reviews-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
