@@ -1,0 +1,293 @@
+/* ===================================================================
+   АДАПТИВНІСТЬ CRIMEA RP — точкові налаштування для груп пристроїв
+   Базова гнучкість (clamp, auto-fit) вже в style.css.
+=================================================================== */
+
+/* --- Складані/дуже вузькі екрани --- */
+@media (max-width:320px){
+.hero{padding-top:68px!important;}
+.hero-text h1{font-size:1.35rem;}
+.hero-text p{font-size:.82rem;}
+.join-box{padding:12px;}
+.tab-btn{padding:7px 10px;font-size:.75rem;}
+.rules-grid,
+.roles-grid{
+grid-template-columns:1fr;
+}
+.staff-member{
+gap:10px;
+}
+.staff-member img{
+width:46px;
+height:46px;
+flex-shrink:0;
+object-fit:cover;
+}
+.staff-member-text{
+min-width:0;
+word-break:break-word;
+overflow-wrap:anywhere;
+}
+.review-arrow{
+width:34px;
+height:34px;
+}
+}
+
+/* --- Телефони і малі планшети --- */
+@media (max-width:768px){
+.hero{
+flex-direction:column!important;
+align-items:flex-start!important;
+gap:16px!important;
+padding-top:70px!important;
+}
+.hero-text,
+.join-box{
+flex:0 1 auto!important;
+width:100%;
+}
+.hero-text h1{
+font-size:1.75rem;
+}
+.hero-text p{
+font-size:.9375rem;
+}
+.rules-grid,
+.roles-grid{
+grid-template-columns:1fr;
+}
+.review-card{
+flex-direction:column;
+text-align:center;
+}
+.review-header{
+justify-content:center;
+}
+.review-arrow{
+width:34px;
+height:34px;
+font-size:18px;
+}
+.join-box{
+width:100%;
+}
+.license-check-row{
+flex-direction:column;
+}
+.license-select,
+.license-input,
+.license-search-btn{
+width:100%;
+}
+.license-result-row{
+flex-direction:column;
+gap:4px;
+}
+
+/* Виправлення карток ролей */
+
+.staff-member{
+display:flex;
+align-items:flex-start;
+gap:12px;
+min-width:0;
+}
+
+.staff-member img{
+width:52px;
+height:52px;
+flex-shrink:0;
+object-fit:cover;
+border-radius:50%;
+}
+
+.staff-member-text{
+flex:1;
+min-width:0;
+overflow-wrap:anywhere;
+word-break:break-word;
+}
+
+.staff-member-text b{
+font-size:14px;
+}
+
+.staff-member-text span{
+font-size:12px;
+}
+
+.modal-header span{
+font-size:16px;
+}
+
+.modal-body{
+padding:18px;
+}
+
+.article-title{
+font-size:16px;
+}
+
+.article-text{
+font-size:13px;
+}
+
+.image-lightbox img{
+max-width:95%;
+max-height:80%;
+}
+}
+
+/* --- Великі телефони (Plus / Pro Max) --- */
+@media (min-width:481px) and (max-width:768px){
+.rules-grid,
+.roles-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+/* --- Планшети (iPad, Android) --- */
+@media (min-width:769px) and (max-width:1024px){
+.rules-grid,
+.roles-grid{
+grid-template-columns:repeat(2,1fr);
+}
+.hero{
+gap:28px;
+}
+.join-box{
+max-width:340px;
+}
+}
+
+/* --- Ноутбуки --- */
+@media (min-width:1025px) and (max-width:1439px){
+.rules-grid,
+.roles-grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+/* --- Full HD --- */
+@media (min-width:1440px){
+.rules-grid,
+.roles-grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+/* --- Великі монітори / 2K+ --- */
+@media (min-width:1920px){
+.hero-text{
+max-width:680px;
+}
+.rules-grid,
+.roles-grid{
+grid-template-columns:repeat(4,1fr);
+}
+}
+
+/* --- 4K --- */
+@media (min-width:2560px){
+html{
+font-size:18px;
+}
+}
+
+/* --- Galaxy Fold --- */
+@media (max-width:280px){
+.rules-grid,
+.roles-grid{
+grid-template-columns:1fr;
+}
+.hero-text h1{
+font-size:1.2rem;
+}
+}
+
+/* --- Альбомна орієнтація --- */
+@media (max-height:480px) and (orientation:landscape){
+.hero{
+padding-top:50px;
+}
+.modal-box{
+max-height:92vh;
+}
+}
+
+/* --- Тач-екрани --- */
+@media (hover:none) and (pointer:coarse){
+.tab-btn,
+.rule-card,
+.role-card,
+#copyBtn,
+.license-search-btn,
+#modalClose,
+#staffModalClose{
+min-height:44px;
+touch-action:manipulation;
+}
+}
+
+/* --- Safari (iPhone/iPad) --- */
+@supports (-webkit-touch-callout:none){
+
+body{
+-webkit-overflow-scrolling:touch;
+}
+
+input,
+textarea,
+select{
+font-size:16px;
+}
+
+.staff-member{
+align-items:flex-start;
+}
+
+.staff-member img{
+object-fit:cover;
+}
+
+.modal-box{
+max-height:90dvh;
+}
+
+}
+
+/* --- Firefox --- */
+@supports (-moz-appearance:none){
+
+.rule-card,
+.role-card,
+.review-card{
+overflow:hidden;
+}
+
+}
+
+/* --- Врахування вирізів iPhone (Safe Area) --- */
+.clock{
+top:max(20px,env(safe-area-inset-top));
+right:max(24px,env(safe-area-inset-right));
+}
+
+.hero,
+.menu-tabs{
+padding-left:max(clamp(16px,6vw,80px),env(safe-area-inset-left));
+padding-right:max(clamp(16px,6vw,80px),env(safe-area-inset-right));
+}
+
+html{
+overscroll-behavior-y:contain;
+-webkit-text-size-adjust:100%;
+}
+
+body{
+min-height:100vh;
+min-height:100svh;
+min-height:100dvh;
+overflow-x:hidden;
+}
