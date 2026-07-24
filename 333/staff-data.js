@@ -97,10 +97,28 @@ const staffData = {
          avatar: "https://i.postimg.cc/5tvf3m82/image-(5).webp"
        },
        {
-         name: "Керівник департаменту патрульної поліції",
+         name: "Начальник Корд",
          nick: "DANYA0705DANYA",
          telegram: "t.me/xXz8br8Xx",
-         avatar: "https://i.postimg.cc/bwmwvjnd/image-(8).webp"
+         avatar: "https://i.postimg.cc/kMf99kPD/image-(11).webp"
+       },
+       {
+         name: "Заступник начальника КОРД",
+         nick: "samunzhiev",
+         telegram: "t.me/LevBarinovv",
+         avatar: "https://i.postimg.cc/fWF2xKxS/image-(12).webp"
+       },
+              {
+         name: "Голова департаменту патрульної полції",
+         nick: "starikashka228337",
+         telegram: "t.me/xxx_DELTA_xxx",
+         avatar: "https://i.postimg.cc/0jf7H9zj/image-(13).webp"
+       },
+       {
+         name: "Заступник начальника департаменту патрульної поілцїі",
+         nick: "artemMelnichenko2013",
+         telegram: "t.me/hosters_full",
+         avatar: "https://i.postimg.cc/Kv8T8SKw/image-(14).webp"
        },
 
 
